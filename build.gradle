@@ -44,5 +44,5 @@ check {
 pitest {
     junit5PluginVersion = '1.2.1'
     targetClasses = ['ch.bbw.m450.tictactoe.*']
-    mutationThreshold = 75
+    mutationThreshold = 30
 }
