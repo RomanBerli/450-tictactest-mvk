@@ -18,16 +18,31 @@ repositories {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
-test {
-    finalizedBy jacocoTestReport // report is always generated after tests run
-}
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
+    dependsOn test
+    finalizedBy jacocoTestCoverageVerification
+}
+
+jacocoTestCoverageVerification {
+    dependsOn jacocoTestReport
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.90
+            }
+        }
+    }
+}
+
+check {
+    dependsOn jacocoTestCoverageVerification
 }
 
 pitest {
     junit5PluginVersion = '1.2.1'
     targetClasses = ['ch.bbw.m450.tictactoe.*']
+    mutationThreshold = 75
 }
