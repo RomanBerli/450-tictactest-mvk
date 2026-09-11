@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'jacoco'
+    id 'info.solidsoft.pitest' version '1.19.0'
 }
 
 dependencies {
@@ -16,4 +18,16 @@ repositories {
 
 test {
     useJUnitPlatform()
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+
+pitest {
+    junit5PluginVersion = '1.2.1'
+    targetClasses = ['ch.bbw.m450.tictactoe.*']
 }
