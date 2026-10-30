@@ -3,10 +3,8 @@ package ch.bbw.m450.tictactoe;
 import static ch.bbw.m450.tictactoe.TicTacToePlayer.Stone.CIRCLE;
 import static ch.bbw.m450.tictactoe.TicTacToePlayer.Stone.CROSS;
 
-public class boardCreator {
+public final class BoardCreator {
 
-    private boardCreator() {
-    }
 
     public static TicTacToePlayer.Stone[] toBoard(String list) {
         var cleanList = list.replace("|", "").toUpperCase();

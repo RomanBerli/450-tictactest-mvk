@@ -18,7 +18,7 @@ public class TicTacToeStepDefinitions implements WithAssertions {
 
     @Given("a board with state {string}")
     public void aBoardWithState(String boardString) {
-        board = boardCreator.toBoard(boardString);
+        board = BoardCreator.toBoard(boardString);
     }
 
     @When("the GreedyPlayer chooses a move for {string}")

@@ -11,6 +11,7 @@ dependencies {
     testRuntimeOnly('org.junit.platform:junit-platform-launcher')
 
     testImplementation("org.assertj:assertj-core:3.27.7")
+    testImplementation('org.junit-pioneer:junit-pioneer:2.3.0')
 
     testImplementation(platform('io.cucumber:cucumber-bom:8.0.4'))
     testImplementation('io.cucumber:cucumber-java')
@@ -24,6 +25,7 @@ repositories {
 
 test {
     useJUnitPlatform()
+    jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED', '--add-opens=java.base/java.util=ALL-UNNAMED'
     finalizedBy jacocoTestReport
 }
 
@@ -37,6 +39,8 @@ jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
                 minimum = 0.90
             }
         }
@@ -50,5 +54,6 @@ check {
 pitest {
     junit5PluginVersion = '1.2.1'
     targetClasses = ['ch.bbw.m450.tictactoe.*']
-    mutationThreshold = 30
+    mutationThreshold = 80
+    jvmArgs = ['--add-opens=java.base/java.lang=ALL-UNNAMED', '--add-opens=java.base/java.util=ALL-UNNAMED']
 }

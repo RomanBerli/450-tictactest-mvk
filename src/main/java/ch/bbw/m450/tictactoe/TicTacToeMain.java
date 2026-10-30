@@ -13,7 +13,7 @@ public class TicTacToeMain {
 
     public static final int BOARD_SIZE = 9;
 
-    static void main(String[] args) {
+    static void main() {
         play(new HumanPlayer(), new Maxxer());
     }
 

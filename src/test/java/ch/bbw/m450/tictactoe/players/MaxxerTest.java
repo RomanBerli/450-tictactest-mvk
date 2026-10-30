@@ -10,9 +10,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Arrays;
 
+import static ch.bbw.m450.tictactoe.BoardCreator.toBoard;
 import static ch.bbw.m450.tictactoe.TicTacToePlayer.Stone.CIRCLE;
 import static ch.bbw.m450.tictactoe.TicTacToePlayer.Stone.CROSS;
-import static ch.bbw.m450.tictactoe.boardCreator.toBoard;
 
 class MaxxerTest implements WithAssertions {
 
