@@ -45,4 +45,5 @@ jobs:
             build/reports/tests/
             build/reports/jacoco/
             build/reports/pitest/
+            build/reports/cucumber/
           retention-days: 14
